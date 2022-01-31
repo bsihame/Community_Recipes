@@ -1,14 +1,18 @@
 
 import './App.css';
-import { Recipe } from './components/recipes/recipes';
+import { Header } from './components/headerFooter/Header';
 import { RecipesView } from './components/recipes/RecipesView';
 
 
 function App() {
   return (
     <div className="App">
-      <RecipesView />
-      
+      <div>
+        <Header />
+      </div>
+      <div>
+        <RecipesView /> 
+        </div>
     </div>
   );
 }

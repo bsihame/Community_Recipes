@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import Paper from "@material-ui/core/Paper";
-import { Card, CardActionArea } from "@mui/material";
+import { Card } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { TextField } from "@material-ui/core";
 import Button from "@mui/material/Button";
+import "../../css/recipeForm.css"
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
+
   rootButton: {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
     border: 0,
@@ -30,10 +33,8 @@ export const RecipeForm = (props) => {
   const handleSubmit = () => {};
 
   return (
-    <div className="recipeContainer">
-      <Paper className="paper">
         <Card className={classes.root}>
-          <CardActionArea className="card_area">
+        <div className="recipeContainer">
             <form className="addRecipeForm" onSubmit={handleSubmit}>
               <div className="cardTitle">
                 <TextField
@@ -85,9 +86,7 @@ export const RecipeForm = (props) => {
                 </Button>
               </div>
             </form>
-          </CardActionArea>
+       </div>
         </Card>
-      </Paper>
-    </div>
   );
 };
