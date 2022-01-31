@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
     width: "110px",
     height: "80px",
     margin: "0.5em",
-    paddingLeft: "7rem",
+    paddingLeft: "5rem",
     display: "none",
-    paddingRight: "35rem",
+    paddingRight: "15rem",
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
