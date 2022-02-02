@@ -6,13 +6,12 @@ import {
   InputBase,
   Tabs,
   Tab,
-  Box
+  Box,
 } from "@material-ui/core";
 import { alpha, makeStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import PropTypes from "prop-types";
 import "../../css/header.css";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     marginRight: "10em",
-    marginLeft:"10em",
+    marginLeft: "10em",
     position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -62,7 +61,6 @@ const useStyles = makeStyles((theme) => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -118,14 +116,15 @@ export const Header = (props) => {
 
   return (
     <>
-    <div className={classes.root}>
-      
-      
-    </div>
+      <div className={classes.root}></div>
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-          <img className={classes.logo} alt="Community RecipesLogo" src="logo.png" />
+            <img
+              className={classes.logo}
+              alt="Community RecipesLogo"
+              src="logo.png"
+            />
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
