@@ -19,10 +19,10 @@ async function register(userInfo) {
     });
   }
 
-  const dynamoUser = await getUser(username);
+  const dynamoUser = await getUser(username.toLowerCase().trim);
   if (dynamoUser && dynamoUser.username) {
     return util.buildResponse(401, {
-      message: "username exist.please choose a different username",
+      message: "username already exist in our database. Please choose a different username",
     });
   }
 
@@ -31,7 +31,7 @@ async function register(userInfo) {
     name: name,
     email: email,
     username: username.toLowerCase().trim(),
-    password: encryptedPw,
+    password: encryptedPW,
   };
 
   const saveUserRespond = await saveUser(user)
@@ -41,9 +41,22 @@ async function register(userInfo) {
   return util.buildResponse(200, {username: username});
 }
 
+async function getUser(username) {
+  const params = {
+    TableName: userTable,
+    Key: {
+      username: username
+    }
+  }
 
+return await dynamodb.get(params).promise().then(response => {
+  return response.Item;
+}, error => {
+  console.error('There is an error getting user: ', error);
+})
+}
 
-async function saverUser(user) {
+async function saveUser(user) {
   const params = {
     TableName: userTable,
     Item: user
@@ -51,7 +64,7 @@ async function saverUser(user) {
   return await  dynamodb.put(params).promise().then(() => {
     return true;
   }, error => {
-    console.log('There is an error saving user', error)
+    console.error('There is an error saving user', error)
   
   })
 }

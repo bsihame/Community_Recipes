@@ -5,7 +5,6 @@ AWS.config.update({
 const util = require("../utils/util");
 const bcrypt = require('bcryptjs');
 const auth = require('../utils/auth');
-const { isUnitless } = require("@mui/material/styles/cssUtils");
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const userTable = "communityRecipe-users";
