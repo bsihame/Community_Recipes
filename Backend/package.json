@@ -1,0 +1,9 @@
+{
+  "name": "register-login-system-backend",
+  "author": "bazi",
+  "version": "1.0.0",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
