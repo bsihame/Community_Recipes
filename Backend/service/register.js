@@ -41,19 +41,7 @@ async function register(userInfo) {
   return util.buildResponse(200, {username: username});
 }
 
-async function getUser(username) {
-  const params = {
-    TableName: userTable,
-    key: {
-      username: username
-    }
-  }
-  return await dynamodb.get(params).promise().then(response => {
-    return response.Item;
-  }, error => {
-    console.log('There is an error getting user: ', error);
-  })
-}
+
 
 async function saverUser(user) {
   const params = {

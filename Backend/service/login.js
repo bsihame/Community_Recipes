@@ -4,6 +4,8 @@ AWS.config.update({
 });
 const util = require("../utils/util");
 const bcrypt = require('bcryptjs');
+const auth = require('../utils/auth');
+const { isUnitless } = require("@mui/material/styles/cssUtils");
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const userTable = "communityRecipe-users";
@@ -28,5 +30,26 @@ async function login(user) {
     username: dynamoUser.username,
     name: dynamoUser.name
   }
-  const token = 
+  const token = auth.generalToken(userInfo)
+  const response = {
+    user: userInfo,
+    token: token
+  }
+  return util.buildResponse(200, response);
 }
+
+async function getUser(username) {
+  const params = {
+    TableName: userTable,
+    key: {
+      username: username
+    }
+  }
+  return await dynamodb.get(params).promise().then(response => {
+    return response.Item;
+  }, error => {
+    console.log('There is an error getting user: ', error);
+  })
+}
+
+module.exports.login = login;
