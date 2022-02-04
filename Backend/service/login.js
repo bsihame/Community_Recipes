@@ -6,6 +6,7 @@ const util = require("../utils/util");
 const bcrypt = require('bcryptjs');
 const auth = require('../utils/auth');
 
+
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const userTable = "communityRecipe-users";
 
@@ -29,7 +30,7 @@ async function login(user) {
     username: dynamoUser.username,
     name: dynamoUser.name
   }
-  const token = auth.generalToken(userInfo)
+  const token = auth.generateToken(userInfo)
   const response = {
     user: userInfo,
     token: token
