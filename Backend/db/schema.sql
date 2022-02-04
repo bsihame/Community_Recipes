@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS instagram2_database;
--- CREATE DATABASE instagram2_database;
--- \c instagram2_database
+DROP DATABASE IF EXISTS communityRecipes_database;
+CREATE DATABASE communityRecipes_database;
+\c communityRecipes_database
 
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS posts CASCADE;
@@ -43,7 +43,7 @@ CREATE TABLE comments
     post_id INT REFERENCES Posts(id) ON DELETE CASCADE,
     CONSTRAINT UC_like UNIQUE (liker_id, post_id)
   );
-  
+
  INSERT INTO users
     (id, full_name, email, username, profile_pic)
   VALUES
