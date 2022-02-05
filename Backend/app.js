@@ -1,6 +1,6 @@
-const express = require("express");
-require("dotenv").config();
-const bodyParser = require("body-parser");
+const express = require("../Frontend/node_modules/@types/express");
+require("../Frontend/node_modules/dotenv/types").config();
+const bodyParser = require("../Frontend/node_modules/@types/body-parser");
 const cors = require("cors");
 
 const app = express();
