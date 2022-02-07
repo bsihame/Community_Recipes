@@ -6,7 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import history from "../history/History";
 import { RecipesView } from "../recipes/recipesView/RecipesView";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +38,7 @@ export const Home = () => {
 
   return (
     <div className={classes.rootHomeDiv}>
-      <ReactPlayer url={video} playing loop muted width="100%" height="100%" />
+      {/* <ReactPlayer url={video} playing loop muted width="100%" height="100%" /> */}
 
       <div className={classes.overlay}>
         <Box
@@ -54,7 +53,10 @@ export const Home = () => {
           </Typography>
           <div className="buttonContainer">
             <Box component="span" className="homeBox">
-              <Button className={classes.homeButton}>
+              <Button
+                className={classes.homeButton}
+                // onClick={DisplayRecipes}
+              >
                 EXPLORE BAZI COMMUNITY RECIPES
               </Button>
             </Box>
@@ -65,14 +67,7 @@ export const Home = () => {
               </Button>
             </Box>
           </div>
-          <div>
-            {/* <Button className="homeButton"
-            // color="primary" 
-            variant="contained"
-            >
-              Login
-            </Button> */}
-          </div>
+          <div></div>
         </Box>
       </div>
       <div className={classes.overlay}></div>
