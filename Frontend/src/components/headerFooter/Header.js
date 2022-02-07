@@ -12,6 +12,8 @@ import { alpha, makeStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import PropTypes from "prop-types";
 import "../../css/header.css";
+import { RecipesView } from "../recipes/recipesView/RecipesView";
+import {Login} from "../login/Login"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -143,24 +145,28 @@ export const Header = (props) => {
               onChange={handleChange}
               aria-label="simple tabs example"
             >
-              <Tab label="Item One" {...a11yProps(0)} />
-              <Tab label="Item Two" {...a11yProps(1)} />
-              <Tab label="Item Three" {...a11yProps(2)} />
+              <Tab label="VIEW RECIPES" {...a11yProps(0)} />
+              <Tab label="Create A Recipe" {...a11yProps(1)} />
+              <Tab label="SIGN UP" {...a11yProps(2)} />
+              <Tab label="LOGIN" {...a11yProps(3)} />
             </Tabs>
           </Toolbar>
         </AppBar>
       </div>
-      {/* <div className="NavigationBar">
+      <div className="NavigationBar">
         <TabPanel value={value} index={0}>
-          Item One
+          <RecipesView />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two
+          Recipes
         </TabPanel>
         <TabPanel value={value} index={2}>
-          Item Three
+          Sign up
         </TabPanel>
-      </div> */}
+        <TabPanel value={value} index={3}>
+          <Login />
+        </TabPanel>
+      </div>
     </>
   );
 };

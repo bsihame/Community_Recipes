@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Tangerine");
+@font-face {
+  font-family: "Tangerine", serif;
+  src: url("https://fonts.googleapis.com/css?family=Tangerine");
+}
+.title {
+  width: 100%;
+  color: white;
+  font-family: "Tangerine", serif;
+  font-size: 100px;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bolder;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid green;
+}
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+}
+.homeBox {
+  width: 400px;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  margin: 10% 10% 10% 0;
+  border: 2px solid green;
+  background-color: rgba(0, 0, 0, 0.5);
+}
