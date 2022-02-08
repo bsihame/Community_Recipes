@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import { TextField } from "@material-ui/core";
 import Button from "@mui/material/Button";
+import { Navbar } from "../headerFooter/navbar/Navbar"
 import "../../css/Login.css";
 
 const useStyles = makeStyles(() => ({
@@ -41,10 +42,11 @@ export const Login = (props) => {
   const handleSubmit = () => {};
 
   return (
+    <>
+      {/* <Navbar /> */}
     <div className="recipeContainer">
       <h1
         className="recipeContainerTitle"
-        // style={"'Tangerine', serif"}
       >
         Login
       </h1>
@@ -87,5 +89,6 @@ export const Login = (props) => {
         </div>
       </form>
     </div>
+    </>
   );
 };

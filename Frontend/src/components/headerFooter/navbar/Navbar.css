@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Tangerine");
+.recipeContainer {
+  align-content: center;
+  margin: 5rem;
+}
+
+@font-face {
+  font-family: "Tangerine", serif;
+  src: url("https://fonts.googleapis.com/css?family=Tangerine");
+}
+.logoName {
+  font-family: "Syne Tactile", cursive;
+  font-size: 28px;
+  text-shadow: 4px 4px 4px #aaa;
+  transform: rotate(-45deg);
+  padding: 2rem 0 0 2rem;
+}
