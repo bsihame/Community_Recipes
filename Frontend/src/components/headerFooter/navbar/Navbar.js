@@ -20,6 +20,7 @@ import { Login } from "../../login/Login";
 import { RecipeForm } from "../../recipes/RecipeForm";
 import { Signup } from "../../signup/Signup";
 import "./Navbar.css";
+import AboutUs from "../../aboutUs/AboutUs";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -184,7 +185,8 @@ export const Navbar = (props) => {
           <Tab label="VIEW RECIPES" {...changeTab(0)} />
           <Tab label="Add A Recipe" {...changeTab(1)} />
           <Tab label="LOGIN" {...changeTab(2)} />
-          <Tab label="Sign Up" {...changeTab(3)} />
+          <Tab label="SIGN UP" {...changeTab(3)} />
+          <Tab label="ABOUT" {...changeTab(4)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -203,6 +205,9 @@ export const Navbar = (props) => {
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
           <Signup />
+        </TabPanel>
+        <TabPanel value={value} index={3} dir={theme.direction}>
+          <AboutUs/>
         </TabPanel>
       </SwipeableViews>
     </Box>
