@@ -8,6 +8,21 @@
   font-family: "Tangerine", serif;
   src: url("https://fonts.googleapis.com/css?family=Tangerine");
 }
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 110px;
+  height: 80px;
+  margin: 0.5em;
+  padding-right: inherit;
+  margin-right: 2rem;
+}
+
 .logoName {
   font-family: "Syne Tactile", cursive;
   font-size: 28px;

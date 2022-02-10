@@ -26,19 +26,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
   },
-  logo: {
-    width: "110px",
-    height: "80px",
-    margin: "0.5em",
-    display: "none",
-    paddingRight: "15rem",
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
-    },
-  },
+
   search: {
     marginRight: "10em",
-    marginLeft: "10em",
+    marginLeft: "20em",
     position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -138,11 +129,13 @@ export const Navbar = () => {
       className={classes.root}
       sx={{ bgcolor: "primary.main", color: "primary.contrastText" }}
     >
-      <AppBar position="static">
+      <AppBar position="static" className="logoContainer">
         <Toolbar>
           <h2 className="logoName">BAZI</h2>
           <img
-            className={classes.logo}
+            // className={classes.logo}
+            className="logo"
+
             alt="Community RecipesLogo"
             src="logo.png"
           />
