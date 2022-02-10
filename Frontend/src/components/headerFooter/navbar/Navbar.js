@@ -1,4 +1,14 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
+import SwipeableViews from "react-swipeable-views";
+import { useTheme } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import SearchIcon from "@material-ui/icons/Search";
+import { RecipesView } from "../../recipes/recipesView/RecipesView";
+import { RecipeForm } from "../../recipes/RecipeForm";
+import { Login } from "../../login/Login";
+import { Signup } from "../../signup/Signup";
 import {
   AppBar,
   Toolbar,
@@ -9,18 +19,7 @@ import {
   alpha,
   makeStyles,
 } from "@material-ui/core";
-import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
-import { useTheme } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
-import SearchIcon from "@material-ui/icons/Search";
-
-import { RecipesView } from "../../recipes/recipesView/RecipesView";
-import { Login } from "../../login/Login";
-import { RecipeForm } from "../../recipes/RecipeForm";
-import { Signup } from "../../signup/Signup";
-import "./Navbar.css";
-import AboutUs from "../../aboutUs/AboutUs";
+import "./Navbar.css"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -91,12 +90,12 @@ function TabPanel(props) {
     <div
       role="tabpanel"
       hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
+      id={`full-width-tabpanel-${index}`}
+      aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
       {value === index && (
-        <Box p=" 3">
+        <Box sx={{ p: 3 }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -110,23 +109,28 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-function changeTab(index) {
+function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
     "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
 
-export const Navbar = (props) => {
+export const Navbar = () => {
   const theme = useTheme();
   const classes = useStyles();
   const [value, setValue] = useState(0);
+  const [url, setUrl] = useState("");
+  // let history = useHistory();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const handleChangeIndex = (index) => {
+
+  const handleChangeIndex = (index, label) => {
     setValue(index);
+    setUrl(label);
+    console.log(114, url);
   };
 
   return (
@@ -173,6 +177,7 @@ export const Navbar = (props) => {
           ></Tabs>
         </Toolbar>
       </AppBar>
+
       <AppBar position="static">
         <Tabs
           value={value}
@@ -182,13 +187,21 @@ export const Navbar = (props) => {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="VIEW RECIPES" {...changeTab(0)} />
-          <Tab label="Add A Recipe" {...changeTab(1)} />
-          <Tab label="LOGIN" {...changeTab(2)} />
-          <Tab label="SIGN UP" {...changeTab(3)} />
-          <Tab label="ABOUT" {...changeTab(4)} />
+          {/* <NavLink to="/recipe"> */}
+          <Tab label="Community Recipes" {...a11yProps(0)} />
+          {/* </NavLink> */}
+          {/* <NavLink to="/addRecipe"> */}
+          <Tab label="Add A Recipe" {...a11yProps(1)} />
+          {/* </NavLink> */}
+          {/* <NavLink to="/login"> */}
+          <Tab label="Login" {...a11yProps(2)} />
+          {/* </NavLink> */}
+          {/* <NavLink to="/signup"> */}
+          <Tab label="Sign Up" {...a11yProps(3)} />
+          {/* </NavLink> */}
         </Tabs>
       </AppBar>
+
       <SwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={value}
@@ -205,9 +218,6 @@ export const Navbar = (props) => {
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
           <Signup />
-        </TabPanel>
-        <TabPanel value={value} index={3} dir={theme.direction}>
-          <AboutUs/>
         </TabPanel>
       </SwipeableViews>
     </Box>

@@ -1,4 +1,6 @@
 import React from "react";
+import {useNavigate, Link , useHistory} from 'react-router-dom';
+import {Redirect} from "react-router"
 import "./home.css";
 import video from "../video/video.mp4";
 import ReactPlayer from "react-player";
@@ -7,6 +9,7 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { RecipesView } from "../recipes/recipesView/RecipesView";
+import { Login } from "../login/Login";
 
 const useStyles = makeStyles((theme) => ({
   rootHomeDiv: {
@@ -17,14 +20,14 @@ const useStyles = makeStyles((theme) => ({
       objectFit: "cover",
     },
   },
-  overlay: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    paddingBottom: "2rem",
-  },
+  // overlay: {
+  //   position: "absolute",
+  //   top: 0,
+  //   left: 0,
+  //   width: "100%",
+  //   height: "100%",
+  //   paddingBottom: "2rem",
+  // },
   homeButton: {
     color: "white",
     fontSize: "medium",
@@ -35,6 +38,18 @@ const useStyles = makeStyles((theme) => ({
 
 export const Home = () => {
   const classes = useStyles();
+  // const history = useHistory();
+  const navigate = useNavigate();
+
+  const changeToLoginPage =()=> {
+    navigate("login")
+    
+  }
+
+  const DisplayRecipes = () => {
+    // navigate('/')
+    // return(<Redirect to='/recipes'/>)
+  }
 
   return (
     <div className={classes.rootHomeDiv}>
@@ -55,14 +70,16 @@ export const Home = () => {
             <Box component="span" className="homeBox">
               <Button
                 className={classes.homeButton}
-                // onClick={DisplayRecipes}
+                onClick={DisplayRecipes}
               >
                 EXPLORE BAZI COMMUNITY RECIPES
               </Button>
             </Box>
 
-            <Box component="span" className="homeBox">
-              <Button className={classes.homeButton}>
+            <Box component="span" className="homeBox" >
+              <Button className={classes.homeButton}
+              onClick={changeToLoginPage}
+              >
                 LOGIN AND SHARE RECIPES WITH YOUR COMMINITY
               </Button>
             </Box>
